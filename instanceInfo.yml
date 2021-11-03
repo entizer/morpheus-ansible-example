@@ -11,3 +11,4 @@
         - "{{ ansible_fqdn }}"
         - "{{ ansible_dns }}"
         - "{{ ansible_dns.nameservers }}"
+        - "{{ ansible_pkg_mgr }}"
