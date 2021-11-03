@@ -10,4 +10,4 @@
         - "{{ ansible_distribution_version }}"
         - "{{ ansible_fqdn }}"
         - "{{ ansible_dns }}"
-        - "{{ nameservers }}"
+        - "{{ ansible_dns.nameservers }}"
