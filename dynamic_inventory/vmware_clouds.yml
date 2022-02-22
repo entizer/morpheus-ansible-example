@@ -1,0 +1,4 @@
+plugin: morpheus_inventory
+groups: 
+  - searchtype: cloud
+    searchstring: vmware
