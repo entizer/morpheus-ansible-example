@@ -1,4 +1,5 @@
 plugin: morpheus.core.morpheus_inventory
 groups: 
-  - searchtype: cloud
+  - name: getvmware
+    searchtype: cloud
     searchstring: vmware
