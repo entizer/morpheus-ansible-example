@@ -1,0 +1,43 @@
+- name: Provision EBS volume
+  hosts: localhost
+  connection: local
+  become: true
+  #become_method: sudo
+  collections:
+   - amazon.aws
+  vars:
+    ansible_python_interpreter: /usr/bin/python3.6
+    eks_region: us-east-1
+    aws_access_key: AKIAWEAFRQ2LPYRIDMWC
+    aws_secret_key: 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
+    instance_id: 
+    availability_zone: us-east-1a
+    iops: 100
+    vol_type: gp2
+    volume_size: 8
+    device_name: sdd
+    del_on_terminate: no
+  module_defaults:
+    group/aws:
+      aws_access_key: '{{ aws_access_key }}'
+      aws_secret_key: '{{ aws_secret_key }}'
+      region: '{{ eks_region }}'
+  tasks:
+    - name: install boto3 using pip
+      pip:
+        name: boto3
+        executable: /usr/bin/pip3
+    - name: Create EBS vol without instance
+      #become: true
+      ec2_vol: 
+       instance: "{{ item.instance_id|default(omit) }}"
+       volume_type: "{{ vol_type }}"
+       volume_size: "{{ volume_size }}"
+       iops: "{{ item.iops|default(omit) }}"
+       device_name: "{{ device_name }}"
+       zone: "{{ availability_zone }}"
+       delete_on_termination: "{{ del_on_terminate }}"
+      when: instance_id == None
+      register: ebsvolwithoutinstance
+    - debug:
+       msg: "{{'EBS volume successfully created ' if ebsvolwithoutinstance.changed else 'EBS volume not created' }}"
