@@ -9,4 +9,4 @@
         - "{{ ansible_distribution }}"
         - "{{ ansible_distribution_version }}"
         - "{{ ansible_fqdn }}"
-        <%= if(morpheus.morpheus.applianceUrl){'- "{{ ' + morpheus.morpheus.applianceUrl + ' }}"'}else{''} %>
+        - "{{ morpheus['results']['testvariable1'] }}"
