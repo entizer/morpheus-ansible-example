@@ -10,3 +10,4 @@
         - "{{ ansible_distribution_version }}"
         - "{{ ansible_fqdn }}"
         - "This is an extra variable:  {{ extra_var_example }}"
+        - "Morpheus vars:  {{ morpheus }}"
