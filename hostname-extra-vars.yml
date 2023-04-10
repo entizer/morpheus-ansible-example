@@ -5,10 +5,10 @@
     - debug:
         msg: "{{ item }}"
       loop:
-        - "{{ ansible_all_ipv4_addresses }}"
-        - "{{ ansible_distribution }}"
-        - "{{ ansible_distribution_version }}"
-        - "{{ ansible_fqdn }}"
+        - "IPv4: {{ ansible_all_ipv4_addresses }}"
+        - "Distro: {{ ansible_distribution }}"
+        - "Distro Version: {{ ansible_distribution_version }}"
+        - "FDQN: {{ ansible_fqdn }}"
         - "This is an extra variable:  {{ extra_var_example }}"
-        - "Metadata {{ morpheus.instance.metadata }}"
-        - "Morpheus vars:  {{ morpheus }}"
+        - "Metadata: {{ morpheus.instance.metadata }}"
+        - "All Morpheus vars: {{ morpheus }}"
