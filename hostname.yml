@@ -9,7 +9,7 @@
     - debug:
         msg: "{{ item }}"
       loop:
-        - "{{ ansible_all_ipv4_addresses }}"
+        - "{{ ansible_interfaces[0].ipv4.address }}"
         - "{{ ansible_distribution }}"
         - "{{ ansible_distribution_version }}"
         - "{{ ansible_fqdn }}"
