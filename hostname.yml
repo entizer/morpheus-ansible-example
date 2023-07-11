@@ -2,6 +2,10 @@
 - hosts: all
   gather_facts: true
   tasks:
+    - name: run the setup facts
+      ansible.builtin.setup:
+    - name: run the windows setup facts
+      ansible.windows.setup:
     - debug:
         msg: "{{ item }}"
       loop:
