@@ -9,6 +9,7 @@
         - "{{ ansible_distribution }}"
         - "{{ ansible_distribution_version }}"
         - "{{ ansible_fqdn }}"
-    - name: Prints two lines of messages, but only if there is an environment value set
+
+    - name: Prints variable
       ansible.builtin.debug:
-        msg: "{{morpheus['customOptions']['textfield']}}"
+        msg: "{{ morpheus['customOptions']['textfield'] }}"
