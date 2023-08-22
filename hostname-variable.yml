@@ -1,0 +1,14 @@
+---
+- hosts: all
+  gather_facts: true
+  tasks:
+    - debug:
+        msg: "{{ item }}"
+      loop:
+        - "{{ ansible_all_ipv4_addresses }}"
+        - "{{ ansible_distribution }}"
+        - "{{ ansible_distribution_version }}"
+        - "{{ ansible_fqdn }}"
+    - name: Prints two lines of messages, but only if there is an environment value set
+      ansible.builtin.debug:
+        msg: "{{morpheus['customOptions']['textfield']}}"
