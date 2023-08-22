@@ -13,3 +13,4 @@
     - name: Prints variable
       ansible.builtin.debug:
         msg: "{{ morpheus['customOptions']['textfield'] }}"
+      when: morpheus['customOptions']['textfield'] == "abc"
